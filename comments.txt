@@ -1,0 +1,36 @@
+Here are the steps we followed in step two:
+
+1. Pre-processing question string
+    Removing extra whitespace characters or any other cleaning steps.
+    [Source: utils.py]
+2. Generate Parse Tree
+    We used a third party python parser names PyStat Parser to generate the parse tree of the sentence.
+    [Source: rahsan3_hiqbal4.py]
+3. Semantic Attachment
+    We traversed the parse tree to create a semantic grammar by attaching semantic information to the specific nodes.
+    [Source: semantic_analyser.py]
+4. Lambda Reduction
+    The generated semantic grammar is then used to consume the input question and reduce lambda expression.
+    It produces a function with some arguments. The principle verb stands for the function name
+    and other tokens including the NPs goes for the arguments. For example, the question 'Did Swank win the oscar in 2000?'
+    results into this function: win(2000,Swank).
+    [Source: semantic_analyser.py]
+5. SQL query generation
+    Based on the generated semantic function, the corresponding sql query is created. An exhaustive list of rules are written
+    to specifically facilitate a specific verb with its specific arguments.
+    [Source: semantic_sql.py, semantic_sql_[domain name].py]
+6. SQL Query Execution
+    The generated query is then executed in domain specific database. We used the project part-1 stuffs to get
+    the domain of a question.
+    [Source: sqlite_db_manager.py]
+7. Show Result
+    After we the sql query is executed the result is processed and the final answer is shown.
+    [Source: rahsan3_hiqbal4.py]
+
+
+
+
+
+-----------------------------
+Ragib Ahsan (rahsan3@uic.edu)
+Hasan Iqbal (hiqbal4@uic.edu)

@@ -1,0 +1,46 @@
+<QUERY>
+Did a movie with Neeson win the oscar for best film?
+<SQL>
+select count(*) from person p inner join actor a on p.id = a.actor_id inner join oscar o on a.movie_id = o.movie_id where p.name like '%Neeson%'
+<ANSWER>
+yes
+
+
+<QUERY>
+Is the Pacific deeper than the Atlantic?
+<SQL>
+select count(*) from Seas s1 join Seas s2 where s1.Ocean like '%Pacific%' and s2.Ocean like '%Atlantic%' and s1.Deepest > s2.Deepest
+<ANSWER>
+yes
+
+
+<QUERY>
+Is Neeson an actor?
+<SQL>
+select count(*)  from person p  inner join actor a on p.id = a.actor_id  where p.name like '%Neeson%'
+<ANSWER>
+yes
+
+
+<QUERY>
+Who directed the best movie in 2010?
+<SQL>
+select p.name from person p inner join director d on p.id = d.director_id inner join oscar o on o.movie_id = d.movie_id where o.type like 'best-picture' and o.year = '2010'
+<ANSWER>
+Kathryn Bigelow
+
+
+<QUERY>
+Which French actor win the oscar in 2012?
+<SQL>
+select p.name from person p inner join actor a on p.id = a.actor_id inner join oscar o on a.movie_id = o.movie_id where p.pob like '%France%' and o.year = '2012' and o.type like '%actor%'
+<ANSWER>
+Jean Dujardin
+
+
+<QUERY>
+Which album by Beyonce was released in 2014?
+<SQL>
+select a.name from Album a inner join Artist ar on ar.id == a.artsitID where ar.name like '%Beyonce%' and a.releaseDate >= '2014-1-1' and a.releaseDate < '2015-1-1'
+<ANSWER>
+1989

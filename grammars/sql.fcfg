@@ -1,0 +1,74 @@
+
+City	Country	Population
+athens	greece	1368
+bangkok	thailand	1178
+barcelona	spain	1280
+berlin	east_germany	3481
+birmingham	united_kingdom	1112
+
+What cities are located in China
+SELECT City FROM city_table WHERE Country="china"
+
+
+(ROOT
+  (SBARQ
+    (WHNP (WDT What) (NNS cities))
+    (SQ (VBP are) (VP (VBN located) (PP (IN in) (NP (NNP China)))))
+    (. ?)))
+
+
+% start S
+S[SEM=(?np + WHERE + ?vp)] -> NP[SEM=?np] VP[SEM=?vp]
+VP[SEM=(?v + ?pp)] -> IV[SEM=?v] PP[SEM=?pp]
+VP[SEM=(?v + ?ap)] -> IV[SEM=?v] AP[SEM=?ap]
+NP[SEM=(?det + ?n)] -> Det[SEM=?det] N[SEM=?n]
+PP[SEM=(?p + ?np)] -> P[SEM=?p] NP[SEM=?np]
+AP[SEM=?pp] -> A[SEM=?a] PP[SEM=?pp]
+NP[SEM='Country="greece"'] -> 'Greece'
+NP[SEM='Country="china"'] -> 'China'
+Det[SEM='SELECT'] -> 'Which' | 'What'
+N[SEM='City FROM city_table'] -> 'cities'
+IV[SEM=''] -> 'are'
+A[SEM=''] -> 'located'
+P[SEM=''] -> 'in'
+
+
+
+Was Loren born in Italy? ->yes/no
+
+select count(*)
+from person
+where name like "%Loren%" and pob like "%Italy%" ->returns 1, hence yes
+
+% start S
+S[SEM=(?np + WHERE + ?vp)] -> NP[SEM=?np] VP[SEM=?vp]
+NP[SEM=?n] -> N[SEM=?n] 
+VP[SEM=(?vp + ?pp)] -> V[SEM=?v] PP[SEM=?pp]
+V[SEM='pob like'] -> 'born'
+PP[SEM=?pp] -> IN[SEM=?in] NP[SEM=?np]
+V[SEM='SELECT COUNT(*)'] -> 'Was'
+IN[SEM='place lie'] -> 'ajob'
+P[SEM='place like'] -> 'in'
+N[SEM='born in'] -> 'Italy'
+N[SEM='name like'] -> 'Loren'
+
+(ROOT
+  (SQ (VBD Was)
+    (NP (NNP Loren))
+    (VP (VBN born)
+      (PP (IN in)
+        (NP (NNP Italy))))
+    (. ?)))
+
+    //mismatch in tree, local vs stanford site, 'was' is nnp in local
+
+
+
+
+
+% start S
+S[SEM=(?np + ?vp)] -> NP[SEM=?np] VP[SEM=?vp]
+NP[SEM=?np] -> N[SEM=?n]
+VP[SEM=?vp] -> V[SEM=?v]
+N[SEM='i'] -> 'i'
+V[SEM='eat'] -> 'eat'

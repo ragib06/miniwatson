@@ -1,0 +1,16 @@
+SS[SEM=(?whnp + ?s)] -> WHNP[SEM=?whnp] S[SEM=?s]
+WHNP[SEM=(?wdt)] -> WDT[SEM=?wdt]
+WDT[SEM=('which')] -> 'which'
+S[SEM=(?np + ?vp)] -> NP[SEM=?np] VP[SEM=?vp]
+NP[SEM=(?jj + ?nn)] -> JJ[SEM=?jj] NN[SEM=?nn]
+JJ[SEM=('Italian')] -> 'Italian'
+NN[SEM=('actress')] -> 'actress'
+VP[SEM=(?vbd + ?np + ?pp)] -> VBD[SEM=?vbd] NP[SEM=?np] PP[SEM=?pp]
+VBD[SEM=(<\x \y.won(y,x)>)] -> 'won'
+NP[SEM=(?dt + ?nn)] -> DT[SEM=?dt] NN[SEM=?nn]
+DT[SEM=()]->'the'
+NN[SEM=('oscar')] -> 'oscar'
+PP[SEM=(?in + ?np)] -> IN[SEM=?in] NP[SEM=?np]
+IN[SEM=()]->'in'
+NP[SEM=(?cd)] -> CD[SEM=?cd]
+CD[SEM=('2011')] -> '2011'

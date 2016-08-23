@@ -1,0 +1,11 @@
+Run specific unit test: 
+
+python -m unittest -v test_miniwatson.TestMiniWatson.test_sample
+
+Run tests in one file: 
+
+python -m unittest -v test_miniwatson.TestMiniWatson
+
+Run all tests in directory: (need to install python "nose" framework)
+nosetests -v 
+

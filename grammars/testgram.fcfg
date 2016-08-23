@@ -1,0 +1,17 @@
+% start S
+
+S[SEM=(?np + WHERE + ?vp)] -> NP[SEM=?np] VP[SEM=?vp]
+
+NP[SEM=(?aux + ?n)] -> Aux[SEM=?aux] N[SEM=?n]
+Aux[SEM='select count (*)'] -> 'Was'
+N[SEM='FROM person'] -> 'Loren'
+
+VP[SEM=(?v + ?ap)] -> IV[SEM=?v] PP[SEM=?ap]
+PP[SEM=(?p + ?np)] -> P[SEM=?p] N[SEM=?np]
+
+N[SEM='pob like "%italy%"'] -> 'Italy'
+N[SEM='pob like "%usa%"'] -> 'USA'
+
+IV[SEM='name like "%loren%" and' ] -> 'born'
+
+P[SEM=''] -> 'in'

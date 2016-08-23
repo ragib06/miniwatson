@@ -1,0 +1,8 @@
+% start S
+S[sem=(?np+?vp)]->NP[sem=?np]VP[sem=?vp]
+NP[sem=(?n)]->N[sem=?n]
+N[sem=('i')]->'i'
+VP[sem=(?v+?np)]->V[sem=?v]NP[sem=?np]
+V[sem=(<\x \y.read(y,x)>)]->'read'
+NP[sem=(?n)]->N[sem=?n]
+N[sem=('books')]->'books'
